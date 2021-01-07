@@ -12,8 +12,8 @@ class AdaptiveApp extends StatelessWidget {
     return MaterialApp(
       title: this.title,
       theme: ThemeData(
-        primaryColor: Colors.pink,
-        accentColor: Colors.amber,
+        primaryColor: Colors.orange,
+        accentColor: Colors.redAccent,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -24,7 +24,7 @@ class AdaptiveApp extends StatelessWidget {
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
               headline6: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontFamily: "RobotoCondensed",
               ),
             ),
