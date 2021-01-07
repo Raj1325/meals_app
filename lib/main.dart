@@ -8,6 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveApp("DeliMeals", null);
+    return AdaptiveApp("DeliMeals", Text("Hello"));
   }
 }

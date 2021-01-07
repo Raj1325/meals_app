@@ -35,7 +35,9 @@ class AdaptiveApp extends StatelessWidget {
         navigationBar: CupertinoNavigationBar(
           middle: Text(this.title),
         ),
-        child: this.homeScreen,
+        child: SafeArea(
+          child: this.homeScreen,
+        ),
       ),
     );
   }
