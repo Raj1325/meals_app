@@ -8,13 +8,34 @@ class AdaptiveApp extends StatelessWidget {
 
   const AdaptiveApp(this.title, this.homeScreen);
 
-  StatefulWidget getMaterialApp() {
+  StatefulWidget getApp(Widget scaffold) {
     return MaterialApp(
       title: this.title,
       theme: ThemeData(
-        primaryColor: Colors.blue,
+        primaryColor: Colors.pink,
+        accentColor: Colors.amber,
+        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              bodyText1: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              bodyText2: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              headline6: TextStyle(
+                fontSize: 24,
+                fontFamily: "RobotoCondensed",
+              ),
+            ),
       ),
-      home: Scaffold(
+      home: scaffold,
+    );
+  }
+
+  StatefulWidget getMaterialApp() {
+    return getApp(
+      Scaffold(
         appBar: AppBar(
           title: Text(
             this.title,
@@ -26,12 +47,8 @@ class AdaptiveApp extends StatelessWidget {
   }
 
   StatefulWidget getCupertinoApp() {
-    return CupertinoApp(
-      title: title,
-      theme: CupertinoThemeData(
-        primaryColor: Colors.blue,
-      ),
-      home: CupertinoPageScaffold(
+    return getApp(
+      CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
           middle: Text(this.title),
         ),
