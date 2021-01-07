@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/adaptive_app.dart';
+import 'package:meals_app/dummy_data.dart';
+import 'package:meals_app/screen/categories_screen.dart';
+import 'package:meals_app/widget/adaptive_app.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveApp("DeliMeals", Text("Hello"));
+    return AdaptiveApp("DeliMeals", CategoriesScreen(DUMMY_CATEGORIES));
   }
 }
