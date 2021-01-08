@@ -3,26 +3,24 @@ import 'package:meals_app/screen/recipes_screen.dart';
 import 'package:meals_app/widget/adaptive_navigator.dart';
 
 class CategoryContainer extends StatelessWidget {
+  final String id;
   final String title;
   final Color color;
 
-  const CategoryContainer({@required this.title, this.color = Colors.orange});
-
-  void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return RecipesScreen();
-        },
-      ),
-    );
-  }
+  const CategoryContainer(
+      {@required this.id, @required this.title, this.color = Colors.orange});
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
-        onTap: () => AdaptiveNavigator.navigate(context, RecipesScreen()),
+        onTap: () =>
+            AdaptiveNavigator.navigateByName(context, RecipesScreen.SCREEN, {
+          "id": this.id,
+          "title": this.title,
+        }),
+        // onTap: () => AdaptiveNavigator.navigate(
+        //     context, RecipesScreen(this.id, this.title)),
         splashColor: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(15),
         child: Container(

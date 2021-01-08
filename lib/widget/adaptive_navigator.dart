@@ -26,4 +26,8 @@ class AdaptiveNavigator {
       Navigator.of(context).push(_getIOSScreen(screen));
     }
   }
+
+  static navigateByName(BuildContext context, String screenName, Map params) {
+    Navigator.of(context).pushNamed(screenName, arguments: params);
+  }
 }

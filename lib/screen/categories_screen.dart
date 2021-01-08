@@ -3,6 +3,7 @@ import 'package:meals_app/model/categories.dart';
 import 'package:meals_app/widget/category_container.dart';
 
 class CategoriesScreen extends StatelessWidget {
+  static String SCREEN = "CategoriesScreen";
   final List<MealCategory> categories;
 
   const CategoriesScreen(this.categories);
@@ -18,6 +19,7 @@ class CategoriesScreen extends StatelessWidget {
       children: [
         ...categories
             .map((categoryData) => CategoryContainer(
+                  id: categoryData.id,
                   title: categoryData.title,
                   color: categoryData.color,
                 ))
