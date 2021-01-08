@@ -57,7 +57,7 @@ class AdaptiveApp extends StatelessWidget {
           middle: Text(this.title),
         ),
         child: SafeArea(
-          child: this.homeScreen,
+          child: Material(child: this.homeScreen),
         ),
       ),
     );
