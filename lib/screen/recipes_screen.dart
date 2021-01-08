@@ -40,7 +40,8 @@ class RecipesScreen extends StatelessWidget {
               middle: Text(title),
             ),
             child: SafeArea(
-              child: Text("This your recipe"),
+              child:
+                  Material(child: getReciepieList(context, title, id, meals)),
             ),
           );
   }
