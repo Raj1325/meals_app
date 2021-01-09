@@ -1,7 +1,8 @@
 import "dart:io";
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/screen/recipes_screen.dart';
+import 'package:meals_app/screen/meals_screen.dart';
+import 'package:meals_app/screen/reciepes_screen.dart';
 
 class AdaptiveApp extends StatelessWidget {
   final String title;
@@ -33,6 +34,7 @@ class AdaptiveApp extends StatelessWidget {
       home: scaffold,
       routes: {
         RecipesScreen.SCREEN: (ctx) => RecipesScreen(),
+        HowToMakeScreen.SCREEN: (ctx) => HowToMakeScreen(),
       },
     );
   }

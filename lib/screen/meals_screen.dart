@@ -31,9 +31,7 @@ class RecipesScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(title),
             ),
-            body: Center(
-              child: getReciepieList(context, title, id, meals),
-            ),
+            body: getReciepieList(context, title, id, meals),
           )
         : CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(

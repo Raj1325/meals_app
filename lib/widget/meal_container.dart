@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/model/meal.dart';
+import 'package:meals_app/screen/reciepes_screen.dart';
+import 'package:meals_app/widget/adaptive_navigator.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
@@ -56,9 +58,8 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Card(
+    return Stack(children: [
+      Card(
         margin: EdgeInsets.all(5),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -131,6 +132,13 @@ class MealItem extends StatelessWidget {
           ],
         ),
       ),
-    );
+      new Positioned.fill(
+          child: new Material(
+              color: Colors.transparent,
+              child: new InkWell(
+                onTap: () => AdaptiveNavigator.navigateByName(
+                    context, HowToMakeScreen.SCREEN, {"id": meal.id}),
+              )))
+    ]);
   }
 }

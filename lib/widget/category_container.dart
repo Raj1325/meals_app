@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screen/recipes_screen.dart';
+import 'package:meals_app/screen/meals_screen.dart';
 import 'package:meals_app/widget/adaptive_navigator.dart';
 
 class CategoryContainer extends StatelessWidget {
@@ -39,7 +39,7 @@ class CategoryContainer extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
     );
