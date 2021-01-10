@@ -136,29 +136,19 @@ class _HowToMakeScreenState extends State<HowToMakeScreen> {
     final routeArgs = ModalRoute.of(context).settings.arguments as Map;
     final String id = routeArgs["id"];
     final Meal meal = DUMMY_MEALS.firstWhere((meal) => meal.id == id);
-    return Platform.isAndroid
-        ? Scaffold(
-            appBar: AppBar(
-              title: Text(meal.title),
-            ),
-            body: getReciepe(context, meal),
-            floatingActionButton: FloatingActionButton(
-              child: Icon(
-                widget.isFavMeal(meal.id) ? Icons.star : Icons.star_border,
-              ),
-              onPressed: () {
-                widget.togalFav(meal.id);
-              },
-            ),
-          )
-        : CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(
-              middle: Text(meal.title),
-            ),
-            child: SafeArea(
-              child: Material(child: getReciepe(context, meal)),
-            ),
-          );
-    ;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(meal.title),
+      ),
+      body: getReciepe(context, meal),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          widget.isFavMeal(meal.id) ? Icons.star : Icons.star_border,
+        ),
+        onPressed: () {
+          widget.togalFav(meal.id);
+        },
+      ),
+    );
   }
 }
