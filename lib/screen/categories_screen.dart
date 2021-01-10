@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/model/categories.dart';
 import 'package:meals_app/widget/category_container.dart';
 
 class CategoriesScreen extends StatelessWidget {
   static String SCREEN = "CategoriesScreen";
-  final List<MealCategory> categories;
+  final List<MealCategory> categories = DUMMY_CATEGORIES;
 
-  const CategoriesScreen(this.categories);
-
-  List<MealCategory> getMealCategories() {
-    return null;
-  }
+  const CategoriesScreen();
 
   @override
   Widget build(BuildContext context) {

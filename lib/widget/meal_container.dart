@@ -5,8 +5,9 @@ import 'package:meals_app/widget/adaptive_navigator.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
+  final Function removeItem;
 
-  const MealItem(this.meal);
+  const MealItem(this.meal, this.removeItem);
 
   String get cookingComplexity {
     switch (meal.complexity) {
@@ -136,8 +137,15 @@ class MealItem extends StatelessWidget {
           child: new Material(
               color: Colors.transparent,
               child: new InkWell(
-                onTap: () => AdaptiveNavigator.navigateByName(
-                    context, HowToMakeScreen.SCREEN, {"id": meal.id}),
+                onTap: () {
+                  AdaptiveNavigator.navigateByName(
+                          context, HowToMakeScreen.SCREEN, {"id": meal.id})
+                      .then((mealID) {
+                    if (mealID != null) {
+                      removeItem(mealID);
+                    }
+                  });
+                },
               )))
     ]);
   }

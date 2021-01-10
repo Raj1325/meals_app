@@ -5,9 +5,18 @@ import 'dart:io';
 
 import 'package:meals_app/model/meal.dart';
 
-class HowToMakeScreen extends StatelessWidget {
+class HowToMakeScreen extends StatefulWidget {
   static String SCREEN = "HowToMakeScreen";
+  final Function togalFav;
+  final Function isFavMeal;
 
+  HowToMakeScreen(this.togalFav, this.isFavMeal);
+
+  @override
+  _HowToMakeScreenState createState() => _HowToMakeScreenState();
+}
+
+class _HowToMakeScreenState extends State<HowToMakeScreen> {
   Widget getReciepe(BuildContext context, Meal meal) {
     return ListView(
       children: [
@@ -133,6 +142,14 @@ class HowToMakeScreen extends StatelessWidget {
               title: Text(meal.title),
             ),
             body: getReciepe(context, meal),
+            floatingActionButton: FloatingActionButton(
+              child: Icon(
+                widget.isFavMeal(meal.id) ? Icons.star : Icons.star_border,
+              ),
+              onPressed: () {
+                widget.togalFav(meal.id);
+              },
+            ),
           )
         : CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(

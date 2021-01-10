@@ -27,7 +27,8 @@ class AdaptiveNavigator {
     }
   }
 
-  static navigateByName(BuildContext context, String screenName, Map params) {
-    Navigator.of(context).pushNamed(screenName, arguments: params);
+  static Future navigateByName(
+      BuildContext context, String screenName, Map params) {
+    return Navigator.of(context).pushNamed(screenName, arguments: params);
   }
 }
